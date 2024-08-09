@@ -11,12 +11,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let tache of table">
-      <td><input type="checkbox"/></td>
+      <td><input type="checkbox" (click)="treat()" /></td>
       <td>{{tache.id}}</td>
-      <td>{{tache.text}}</td>
+      <td>{{ tache.text }} </td>
       <td>{{tache.complete}}</td>
       <td>
-        <button (click)="modifier()">Modifier</button>
+        <button>Modifier</button>
         <button (click)="delete()">Supprimer</button>
       </td>
     </tr>

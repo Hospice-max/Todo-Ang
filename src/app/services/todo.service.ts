@@ -5,13 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class TodoService {
 id:number = 1;
+  text?: string;
+  index: any;
+  
+
 
   constructor() { }
   taches: { id: number,  text: string, complete: boolean }[] = [];
 
   ajouterTache = (t:string): void => {
     if(t.trim()!== '') {
-    this.taches.push({id:this.id++, text: t, complete: false });
+    this.taches.push({id:this.id++, text: t, complete: true});
   }};
   getTodo () {
     return this.taches;
@@ -23,15 +27,6 @@ id:number = 1;
   
  supprimerAllTache = (index: number): void => {
       this.taches.splice(index);
-  };
-
-
-   modifierTache = (index:number):void => {
-     const tacheAModifier = this.taches[index];
-    const nouvelleDescription:string|null = prompt('Entrez la nouvelle description de la tâche :');
-    if (nouvelleDescription) {
-     tacheAModifier.text = nouvelleDescription;
-     }
   };
 
 }

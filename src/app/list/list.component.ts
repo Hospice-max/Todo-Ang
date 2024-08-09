@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
+import { Todo } from '../todo';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { TodoService } from '../services/todo.service';
 export class ListComponent implements OnInit {
   index!: number;
 
-  table?:{ id: number,  text: string, complete: boolean }[] = [];
+  table?: { id: number, text: string, complete: boolean }[] = [];
   todoService: any;
   constructor(private service: TodoService) { }
 
@@ -19,10 +20,17 @@ export class ListComponent implements OnInit {
   }
 
   delete(): void {
-this.service.supprimerTache(this.index)
-  }
-  modifier():void {
-    this.service.modifierTache(this.index)
+    this.service.supprimerTache(this.index)
   }
 
+  treat(): void {
+    alert('Confirmer comme traité')
+  }
+  
+
+
 }
+
+
+
+
