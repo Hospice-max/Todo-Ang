@@ -21,5 +21,8 @@ export class ListComponent implements OnInit {
   delete(): void {
 this.service.supprimerTache(this.index)
   }
+  modifier():void {
+    this.service.modifierTache(this.index)
+  }
 
 }
