@@ -1,6 +1,4 @@
-import { NgIf } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Todo } from '../todo';
 
 @Injectable({
   providedIn: 'root'
