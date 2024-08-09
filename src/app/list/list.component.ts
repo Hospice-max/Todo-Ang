@@ -18,7 +18,8 @@ export class ListComponent implements OnInit {
     this.table = this.service.getTodo();
   }
 
-  delete(index: number): void {
-    this.todoService.supprimerTache()
+  delete(): void {
+this.service.supprimerTache(this.index)
   }
+
 }

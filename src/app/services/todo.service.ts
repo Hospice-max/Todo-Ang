@@ -10,8 +10,9 @@ id:number = 1;
   taches: { id: number,  text: string, complete: boolean }[] = [];
 
   ajouterTache = (t:string): void => {
+    if(t.trim()!== '') {
     this.taches.push({id:this.id++, text: t, complete: false });
-  };
+  }};
   getTodo () {
     return this.taches;
   }
@@ -20,4 +21,9 @@ id:number = 1;
     this.taches.splice(index, 1);
   };
   
+ supprimerAllTache = (index: number): void => {
+      this.taches.splice(index);
+  };
+
+
 }
