@@ -11,11 +11,7 @@ import { Todo } from '../todo';
 export class ListComponent implements OnInit {
   index!: number;
 
-<<<<<<< HEAD
-  table?: { id: number, text: string, complete: boolean }[] = [];
-=======
   table?:{ id: number,  text: string, complete: boolean, edit:boolean}[] = [];
->>>>>>> b77d917855cd0c20d1225f0607c92dc08baba41b
   todoService: any;
   constructor(private service: TodoService) { }
 
@@ -27,13 +23,11 @@ export class ListComponent implements OnInit {
     this.service.supprimerTache(this.index)
   }
 
-  treat(): void {
-    alert('Confirmer comme traité')
+  treat(todo:{ id: number,  text: string, complete: boolean, edit:boolean}): void {
+    this.service.treat(todo)
   }
   
-
   modifier(todo:{ id: number,  text: string, complete: boolean, edit:boolean}):void {
-
     this.service.modifier(todo)
   }
 

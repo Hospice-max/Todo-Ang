@@ -18,7 +18,7 @@ id:number = 1;
 
   ajouterTache = (t:string): void => {
     if(t.trim()!== '') {
-    this.taches.push({id:this.id++, text: t, complete: false, edit:false});
+    this.taches.push({id:this.id++, text: t, complete: true, edit:false});
   }};
   getTodo () {
     return this.taches;
@@ -34,5 +34,9 @@ id:number = 1;
 modifier(tache:{ id: number,  text: string, complete: boolean, edit:boolean}){
   tache.edit = !tache.edit
 }
+treat(tache:{ id: number,  text: string, complete: boolean, edit:boolean}){
+  tache.complete = !tache.complete
+}
+
 }
 
