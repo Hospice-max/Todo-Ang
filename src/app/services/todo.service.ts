@@ -17,9 +17,16 @@ id:number = 1;
   getTodo () {
     return this.taches;
   }
-  
+
  supprimerTache = (index: number): void => {
     this.taches.splice(index, 1);
   };
-  
+   modifierTache = (index:number):void => {
+     const tacheAModifier = this.taches[index];
+    const nouvelleDescription:string|null = prompt('Entrez la nouvelle description de la tâche :');
+    if (nouvelleDescription) {
+     tacheAModifier.text = nouvelleDescription;
+     }
+  };
+
 }
