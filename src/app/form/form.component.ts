@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todo.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,10 +8,11 @@ import { FormControl } from '@angular/forms';
   styleUrl: './form.component.css'
 })
 
-export class FormComponent  {
-  ajouter = new FormControl('')
+export class FormComponent {
+  ajouter = new FormControl('', Validators.required)
   constructor(private todoService: TodoService) { }
-  create(){
-   this.todoService.ajouterTache(this.ajouter.value|| '')
+  create() {
+    this.todoService.ajouterTache(this.ajouter.value || '');
+    this.ajouter.setValue('');
   }
 }
