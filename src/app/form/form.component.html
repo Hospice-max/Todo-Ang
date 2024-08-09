@@ -2,12 +2,13 @@
 <div class="corpus">
     <h1 class="title">Liste des Tâches</h1>
     <div class="flex">
-      <form>
-        <input class="form"  placeholder="Entrez une Tâche" />
+      <form (submit)="create()">
+        <input class="form"  placeholder="Entrez une Tâche"  [formControl]="ajouter" />
         <div class="btn">
-            <button class="submit" type="submit">Ajouter</button>
+            <button class="submit" type="submit" >Ajouter</button>
             <button class="submit" type="submit">Tout supprimer</button>
         </div>
       </form>
     </div>
  <div>
+
