@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TodoService {
+  modifierTache(_index: number): any {
+    throw new Error('Method not implemented.');
+  }
 id:number = 1;
   text?: string;
   index: any;
@@ -11,11 +14,11 @@ id:number = 1;
 
 
   constructor() { }
-  taches: { id: number,  text: string, complete: boolean }[] = [];
+  taches: { id: number,  text: string, complete: boolean, edit:boolean }[] = [];
 
   ajouterTache = (t:string): void => {
     if(t.trim()!== '') {
-    this.taches.push({id:this.id++, text: t, complete: true});
+    this.taches.push({id:this.id++, text: t, complete: false, edit:false});
   }};
   getTodo () {
     return this.taches;
@@ -24,9 +27,12 @@ id:number = 1;
  supprimerTache = (index: number): void => {
     this.taches.splice(index, 1);
   };
-  
  supprimerAllTache = (index: number): void => {
       this.taches.splice(index);
   };
 
+modifier(tache:{ id: number,  text: string, complete: boolean, edit:boolean}){
+  tache.edit = !tache.edit
 }
+}
+
