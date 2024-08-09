@@ -9,13 +9,18 @@ import { FormControl, Validators } from '@angular/forms';
 })
 
 export class FormComponent {
+  index!: number;
   ajouter = new FormControl('', Validators.required)
   
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private service: TodoService) { }
 
   create() {
     this.todoService.ajouterTache(this.ajouter.value || '');
     this.ajouter.setValue('');
   }
 
+  
+  deleteAll(): void {
+    this.service.supprimerAllTache(this.index)
+      }
 }

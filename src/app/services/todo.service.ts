@@ -1,19 +1,21 @@
-import { NgIf } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Todo } from '../todo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+  modifierTache(_index: number): any {
+    throw new Error('Method not implemented.');
+  }
 id:number = 1;
 
   constructor() { }
-  taches: { id: number,  text: string, complete: boolean }[] = [];
+  taches: { id: number,  text: string, complete: boolean, edit:boolean }[] = [];
 
   ajouterTache = (t:string): void => {
-    this.taches.push({id:this.id++, text: t, complete: false });
-  };
+    if(t.trim()!== '') {
+    this.taches.push({id:this.id++, text: t, complete: false, edit:false});
+  }};
   getTodo () {
     return this.taches;
   }
@@ -21,12 +23,13 @@ id:number = 1;
  supprimerTache = (index: number): void => {
     this.taches.splice(index, 1);
   };
-   modifierTache = (index:number):void => {
-     const tacheAModifier = this.taches[index];
-    const nouvelleDescription:string|null = prompt('Entrez la nouvelle description de la tâche :');
-    if (nouvelleDescription) {
-     tacheAModifier.text = nouvelleDescription;
-     }
+
+ supprimerAllTache = (index: number): void => {
+      this.taches.splice(index);
   };
 
+modifier(tache:{ id: number,  text: string, complete: boolean, edit:boolean}){
+  tache.edit = !tache.edit
 }
+}
+

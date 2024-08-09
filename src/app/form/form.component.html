@@ -4,8 +4,11 @@
     <div class="flex">
       <form (submit)="create()">
         <input class="form"  placeholder="Entrez une Tâche"  [formControl]="ajouter" />
-        <button class="submit" type="submit" >Ajouter</button>
+        <button class="submit" type="submit">Ajouter</button>
+       
+        
       </form>
+      <button (click)="deleteAll()">Tout Supprimer</button>
     </div>
  <div>
 
