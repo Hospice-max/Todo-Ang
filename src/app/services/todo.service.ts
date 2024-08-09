@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Todo } from '../todo';
 
@@ -5,7 +6,7 @@ import { Todo } from '../todo';
   providedIn: 'root'
 })
 export class TodoService {
-id:number = 0;
+id:number = 1;
 
   constructor() { }
   taches: { id: number,  text: string, complete: boolean }[] = [];
@@ -16,4 +17,9 @@ id:number = 0;
   getTodo () {
     return this.taches;
   }
+  
+ supprimerTache = (index: number): void => {
+    this.taches.splice(index, 1);
+  };
+  
 }
